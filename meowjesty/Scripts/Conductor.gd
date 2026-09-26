@@ -3,22 +3,16 @@ extends Node2D
 var note_map: Array[float]= [1]
 var song_pos
 
-# Called when the node enters the scene tree for the first time.
+var bpm = 60
 func _ready() -> void:
-	print("hello")
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	print(str(Time.get_ticks_msec()))
-	if Input.is_action_just_pressed("ui_accept"):
-		print("space pressed")
-		hit_acc(note_map)
-		
 	
 	pass
-
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		hit_acc(note_map)
+	pass
+	
 func hit_acc(note_map1: Array[float]) -> void:
 	var current_time = Time.get_ticks_msec() # replace with current song posistion
 	var i = 0
@@ -40,5 +34,12 @@ func hit_acc(note_map1: Array[float]) -> void:
 		print("miss!")
 	print(str(timing_error) + "ms off")
 	
+	pass
+	
+func set_song(song: int) -> void:
+
+	if song == 1:
+		bpm = 180
+		note_map = [1, 2, 3, 4]
 	
 	pass
