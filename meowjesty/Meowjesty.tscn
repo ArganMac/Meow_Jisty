@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://21gj6om8f3ki"]
 
-[node name="Level1" type="Node2D" unique_id=1025614492]
+[node name="Meowjesty" type="Node2D" unique_id=1025614492]
+
+[node name="level1" type="Node2D" parent="." unique_id=1600329187]
+
+[node name="level2" type="Node2D" parent="." unique_id=1449248558]
+
+[node name="level3" type="Node2D" parent="." unique_id=2050618283]
