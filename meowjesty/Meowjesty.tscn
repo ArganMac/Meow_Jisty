@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://csaauybqg7qpx" path="res://Scripts/Conductor.gd" id="1_teo1n"]
 [ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Lecture Hall.mp3" id="2_bkr5c"]
-[ext_resource type="MidiResource" uid="uid://ci64u7p5jqt6q" path="res://Songs/Midi/Lecture Hall.mid" id="3_fsjci"]
+
+[sub_resource type="Resource" id="Resource_vgcd4"]
+metadata/__load_path__ = "res://Songs/Midi/Lecture Hall.mid"
 
 [node name="Meowjesty" type="Node2D" unique_id=1025614492]
 script = ExtResource("1_teo1n")
@@ -11,7 +13,7 @@ script = ExtResource("1_teo1n")
 stream = ExtResource("2_bkr5c")
 
 [node name="MidiPlayer" type="MidiPlayer" parent="." unique_id=135049959]
-midi = ExtResource("3_fsjci")
+midi = SubResource("Resource_vgcd4")
 
 [node name="level1" type="Node2D" parent="." unique_id=1600329187]
 

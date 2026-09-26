@@ -2,11 +2,34 @@
 
 [ext_resource type="PackedScene" uid="uid://b2j266wppf2ss" path="res://players/player.tscn" id="1_jg0dc"]
 [ext_resource type="PackedScene" uid="uid://c7x1vs2wmthij" path="res://platforms/platform.tscn" id="2_nmjpi"]
+[ext_resource type="PackedScene" uid="uid://dmd24jrkrkamh" path="res://players/enemy.tscn" id="3_xdadj"]
 
 [node name="level2" type="Node2D" unique_id=1675953455]
 
+[node name="enemy" parent="." unique_id=1948982418 instance=ExtResource("3_xdadj")]
+position = Vector2(1300, -100)
+collision_layer = 2
+
 [node name="player" parent="." unique_id=773950627 instance=ExtResource("1_jg0dc")]
 position = Vector2(-27, -39)
+collision_layer = 2
 
 [node name="platform" parent="." unique_id=1146163633 instance=ExtResource("2_nmjpi")]
-position = Vector2(56, 178)
+position = Vector2(0, 125)
+is_ground = true
+
+[node name="platform2" parent="." unique_id=1560223552 instance=ExtResource("2_nmjpi")]
+position = Vector2(500, 125)
+is_ground = true
+
+[node name="platform3" parent="." unique_id=687476640 instance=ExtResource("2_nmjpi")]
+position = Vector2(1000, 125)
+is_ground = true
+
+[node name="platform4" parent="." unique_id=1140317043 instance=ExtResource("2_nmjpi")]
+position = Vector2(1500, 125)
+is_ground = true
+
+[node name="platform5" parent="." unique_id=303634803 instance=ExtResource("2_nmjpi")]
+position = Vector2(2000, 125)
+is_ground = true
