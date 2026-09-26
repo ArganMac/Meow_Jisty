@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://21gj6om8f3ki"]
 
+[ext_resource type="Script" uid="uid://csaauybqg7qpx" path="res://Scripts/Conductor.gd" id="1_teo1n"]
+
 [node name="Meowjesty" type="Node2D" unique_id=1025614492]
+script = ExtResource("1_teo1n")
 
 [node name="level1" type="Node2D" parent="." unique_id=1600329187]
 
