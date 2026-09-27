@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dyrjnhj7et0q4" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Walk.png" id="1_l271l"]
 [ext_resource type="Script" uid="uid://rq2062u32cos" path="res://players/player.gd" id="1_wu7mp"]
 [ext_resource type="Texture2D" uid="uid://cca0o7n543yct" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Attack.png" id="2_wu7mp"]
+[ext_resource type="Texture2D" uid="uid://bnw8hsuxcaxsw" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Hurt.png" id="3_60y4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5illy"]
 atlas = ExtResource("2_wu7mp")
@@ -15,6 +16,14 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogrlw"]
 atlas = ExtResource("2_wu7mp")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1fvc"]
+atlas = ExtResource("3_60y4r")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jwom"]
+atlas = ExtResource("3_60y4r")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6aj8"]
 atlas = ExtResource("1_l271l")
@@ -75,6 +84,17 @@ animations = [{
 "loop": 0,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1fvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jwom")
+}],
+"loop": 2,
+"name": &"hurt",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,7 +183,7 @@ script = ExtResource("1_wu7mp")
 position = Vector2(14.99994, -76.99999)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_uupf1")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "running"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=190331861]

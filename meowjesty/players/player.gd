@@ -3,6 +3,8 @@ class_name Player
 
 const SPEED = 800.0
 const JUMP_VELOCITY = -600.0
+var combo = 0
+var score = 0
 
 var last_animation = "running"
 
@@ -46,3 +48,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.animation = "hurt"
 		pass
 	pass
+
+
+func _on_spawn_timer_timeout() -> void:
+	pass # Replace with function body.
