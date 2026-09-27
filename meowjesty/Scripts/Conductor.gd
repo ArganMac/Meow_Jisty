@@ -4,7 +4,7 @@ var note_map: Array[float] = []
 var beat_length_ms: float = 0.0 
 var bpm: float = 60.0 
 var offset = 100
-
+var combo = 0
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
@@ -37,16 +37,19 @@ func hit_acc(note_map1: Array[float]) -> void:
 	
 	if timing_error < 50:
 		print("great!")
-		
-		
+		combo += 1
 	elif timing_error < 100:
 		print("good!")
+		combo += 1
 	elif timing_error < 150:
 		print("ok!")
+		combo += 1
 	else:
 		print("miss!")
+		combo = 0
+		
 	print(str(timing_error) + "ms off")
-	print("hit note: " + str(note_map[i]))
+	
 	if timing_error < 300:
 		note_map.remove_at(i)
 	
