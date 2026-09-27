@@ -9,12 +9,15 @@ var combo = 0
 
 func _ready() -> void:
 	set_song(1)
+	
 	for i in range(note_map.size()):
 		print("Note at: " + str(note_map[i]) + " ms")
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		hit_acc(note_map)
+		
+	
 
 func hit_acc(note_map1: Array[float]) -> void:
 	if note_map1.is_empty():
@@ -75,4 +78,6 @@ func set_song(song: int) -> void:
 	# How many milliseconds per beat
 	beat_length_ms = 60000.0 / bpm
 	
+func play_song():
 	audio_player.play()
+	

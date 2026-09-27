@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://21gj6om8f3ki"]
 
-[ext_resource type="Script" uid="uid://csaauybqg7qpx" path="res://Scripts/Conductor.gd" id="1_teo1n"]
-[ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Lecture Hall.mp3" id="2_bkr5c"]
+[ext_resource type="Script" uid="uid://ccwcp0hu6sn21" path="res://meowjesty.gd" id="1_fsjci"]
 [ext_resource type="Texture2D" uid="uid://c7byy1tefbxf6" path="res://sprites/bglogo.png" id="3_bkr5c"]
 [ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://sprites/playbutton.png" id="4_fsjci"]
 
 [node name="Meowjesty" type="Node2D" unique_id=1025614492]
-script = ExtResource("1_teo1n")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1770387503]
-stream = ExtResource("2_bkr5c")
+script = ExtResource("1_fsjci")
 
 [node name="MidiPlayer" type="MidiPlayer" parent="." unique_id=135049959]
 
@@ -26,7 +22,11 @@ position = Vector2(962, 550)
 scale = Vector2(2.420625, 1.8175001)
 texture = ExtResource("3_bkr5c")
 
-[node name="play_button" type="Sprite2D" parent="CanvasGroup" unique_id=770214601]
-position = Vector2(1292, 807.00006)
-scale = Vector2(1.4749997, 0.9149999)
-texture = ExtResource("4_fsjci")
+[node name="Button" type="Button" parent="CanvasGroup" unique_id=506111261]
+offset_left = 871.0
+offset_top = 698.0
+offset_right = 1079.0
+offset_bottom = 906.0
+icon = ExtResource("4_fsjci")
+
+[connection signal="pressed" from="CanvasGroup/Button" to="." method="_on_button_pressed"]
