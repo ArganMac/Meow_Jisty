@@ -13,5 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://level_2.tscn")
-	Conductor.play_song()
+	get_tree().change_scene_to_file("res://opening_talk.tscn")

@@ -8,21 +8,13 @@ const JUMP_VELOCITY = -600.0
 var combo = 0
 var score = 0
 var indicator = "Perfect"
-var hits = 0.0
-var total = 0.0
-var accuracy = 0.0
+
 
 
 var last_animation = "running"
 
 func _physics_process(delta: float) -> void:
-	
-	# Update the accuracy
-	if total == 0.0:
-		accuracy = 0.0
-	else:
-		accuracy = snappedf(hits / total, 0.01) * 100.0
-	ui.set_score(score, indicator, accuracy)
+	ui.set_score(score, indicator)
 	
 	
 	
@@ -40,7 +32,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("attack")
 		
-		# Call deal_damage directly (deal_damage handles finding overlapping enemies)
 		deal_damage()
 
 	# Handle jump.
@@ -73,6 +64,7 @@ func deal_damage() -> void:
 		if not closest_enemy.is_dead:
 			closest_enemy.check_accuracy()
 			closest_enemy.take_damage()
+
 		
 
 func _on_animated_sprite_2d_animation_finished() -> void:

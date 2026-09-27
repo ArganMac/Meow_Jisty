@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func set_score(score, indicator, acc):
-	$Label.text = "Score: " + str(score) + "    Indicator: " + indicator + "\nAccuracy: " + str(acc) + "%"
+func set_score(score, indicator):
+	$Label.text = "Score: " + str(score) + "    Indicator: " + indicator

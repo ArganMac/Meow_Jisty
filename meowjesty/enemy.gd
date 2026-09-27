@@ -11,7 +11,7 @@ var health = 100
 
 
 func _physics_process(delta: float) -> void:
-	if position.x < -20:
+	if position.x < -40:
 		check_accuracy()
 		queue_free()
 	
@@ -21,11 +21,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and not is_dead:
 		velocity += get_gravity() * delta
 	elif is_dead:
-		velocity.y = YSPEED
+		$"AnimatedSprite2D".animation = "hurt"
 
-	# Continuously moving
-	velocity.x = SPEED
+		velocity.y = YSPEED
+		SPEED = -300
 	
+	velocity.x = SPEED
+	move_and_slide()
 		
 	if is_dead:
 		$"AnimatedSprite2D".animation = "hurt"
@@ -39,22 +41,16 @@ func take_damage() -> void:
 	
 func check_accuracy() -> void:
 	var diff = position.x - $"../player".position.x
-	if diff > 85 and diff < 145:
+	if diff > -20 and diff < 100:
 		$"../player".indicator = "Perfect"
 		$"../player".score += 300
-		$"../player".hits += 1.0
 		$"../KillTimer".start()
-	elif diff > 0 and diff < 145:
+	elif diff < -20 and diff > -100:
 		$"../player".indicator = "Okay"
 		$"../player".score += 100
-		$"../player".hits += 0.5
 		$"../KillTimer".start()
-	elif diff < 0:
+	elif diff < -20:
 		$"../player".indicator = "Miss"
-	
-	$"../player".total += 1
-		
-	pass
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	
@@ -71,4 +67,4 @@ func set_dead(isDead: bool) -> void:
 
 func _on_kill_timer_timeout() -> void:
 	queue_free()
-	pass # Replace with function body.
+	pass
