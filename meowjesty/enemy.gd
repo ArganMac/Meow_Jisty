@@ -11,16 +11,13 @@ var health = 100
 
 
 func _physics_process(delta: float) -> void:
-	
-	# Add the gravity.
-	if not is_on_floor() and not is_dead:
-		velocity += get_gravity() * delta
-	elif is_dead:
+	if is_dead:
+		$"AnimatedSprite2D".animation = "hurt"
 		velocity.y = YSPEED
-
-	# Continuously moving
-	velocity.x = SPEED
+		SPEED = -300
 	
+	velocity.x = SPEED
+	move_and_slide()
 		
 	if is_dead:
 		$"AnimatedSprite2D".animation = "hurt"
@@ -31,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage() -> void:
 	is_dead = true
+	queue_free()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	

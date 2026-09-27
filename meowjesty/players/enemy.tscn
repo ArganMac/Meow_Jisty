@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cprwkygib330s" path="res://enemy.gd" id="1_1dmno"]
 [ext_resource type="Texture2D" uid="uid://e0lnn4esundx" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/4 Cat 2/Walk.png" id="1_hdvod"]
 [ext_resource type="Texture2D" uid="uid://dmcb4clympfet" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/4 Cat 2/Hurt.png" id="2_msd78"]
+[ext_resource type="Script" uid="uid://capj8b0iyn4ag" path="res://players/area_2d.gd" id="4_vcanl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jle2j"]
 atlas = ExtResource("2_msd78")
@@ -69,7 +70,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7mp"]
 size = Vector2(137, 73)
 
-[node name="enemy" type="CharacterBody2D" unique_id=1948982418]
+[node name="enemy" type="CharacterBody2D" unique_id=1948982418 groups=["enemy"]]
 z_index = -1
 collision_layer = 2
 script = ExtResource("1_1dmno")
@@ -83,7 +84,14 @@ animation = &"hurt"
 autoplay = "walk"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138650663]
-z_index = -1
+[node name="Area2D" type="Area2D" parent="." unique_id=1948327425 groups=["enemy"]]
 position = Vector2(1.5, 9.5)
+script = ExtResource("4_vcanl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1138650663]
+z_index = -1
+shape = SubResource("RectangleShape2D_wu7mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1677418026]
+z_index = -1
 shape = SubResource("RectangleShape2D_wu7mp")

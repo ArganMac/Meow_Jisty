@@ -3,26 +3,184 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @onready var spawn_location: PathFollow2D = $player/Camera2D/SpawnPath/SpawnLocation
 @onready var spawn_timer: Timer = $SpawnTimer
+var score = 0
+var combo = 0
 
-var i = 0
+var max_combo = 0
+var great = 0
+var good = 0
+var okay = 0
+var missed = 0
 
-func _ready() -> void:
-	if enemy_scene == null:
-		print("ERROR: enemy_scene is NOT assigned in the Inspector!")
+var bpm = 190
 
-func _process(delta: float) -> void:
-	if not Conductor.audio_player.playing:
-		return
-	if i >= Conductor.note_map.size():
-		return
-	var current_pos = Conductor.get_song_position() * 1000	
-	if current_pos >= Conductor.note_map[i]-650:
-		print(">>> SPAWNING note ", i, " (", Conductor.note_map[i], "ms) at song time ", current_pos)
+var song_position = 0.0
+var song_position_in_beats = 0
+var last_spawned_beat = 0
+var sec_per_beat = 60.0 / bpm
+
+
+var spawn_1_beat = 0
+var spawn_2_beat = 0
+var spawn_3_beat = 1
+var spawn_4_beat = 0
+
+
+func _ready():
+	print("LEVEL 2 READY")
+	randomize()
+	$Conductor.beat.connect(_on_conductor_beat)
+	$Conductor.measure.connect(_on_conductor_measure)
+	$Conductor.play_with_beat_offset(7.75)
+
+
+func _on_Conductor_measure(position):
+	print("measure signal: ", position)
+	if position == 1:
+		_spawn_notes(spawn_1_beat)
+	elif position == 2:
+		_spawn_notes(spawn_2_beat)
+	elif position == 3:
+		_spawn_notes(spawn_3_beat)
+	elif position == 4:
+		_spawn_notes(spawn_4_beat)
+
+func _on_Conductor_beat(position):
+	song_position_in_beats = position
+	if song_position_in_beats > 36:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 98:
+		spawn_1_beat = 2
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 132:
+		spawn_1_beat = 0
+		spawn_2_beat = 2
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 162:
+		spawn_1_beat = 2
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 194:
+		spawn_1_beat = 2
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 228:
+		spawn_1_beat = 0
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 258:
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 288:
+		spawn_1_beat = 0
+		spawn_2_beat = 2
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 322:
+		spawn_1_beat = 3
+		spawn_2_beat = 2
+		spawn_3_beat = 2
+		spawn_4_beat = 1
+	if song_position_in_beats > 388:
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 0
+		spawn_4_beat = 0
+	if song_position_in_beats > 396:
+		spawn_1_beat = 0
+		spawn_2_beat = 0
+		spawn_3_beat = 0
+		spawn_4_beat = 0
+	if song_position_in_beats > 404:
+		Globals.set_score(score)
+		Globals.combo = max_combo
+		Globals.great = great
+		Globals.good = good
+		Globals.okay = okay
+		Globals.missed = missed
+		if get_tree().change_scene("res://Scenes/End.tscn") != OK:
+			print ("Error changing scene to End")
+
+func _spawn_notes(to_spawn):
+	print("_spawn_notes called with: ", to_spawn)
+	if to_spawn > 0:
+		
 		var enemy = enemy_scene.instantiate()
-		spawn_location.progress_ratio = 0.5
+		spawn_location.progress_ratio = 0.1
 		enemy.global_position = spawn_location.global_position
+		enemy.global_position.y += 150 
+		print("enemy spawned at: ", enemy.global_position)
 		get_tree().current_scene.add_child(enemy)
-		i += 1
 		
 		
 		
+func increment_score(by):
+	if by > 0:
+		combo += 1
+	else:
+		combo = 0
+	
+	if by == 3:
+		great += 1
+	elif by == 2:
+		good += 1
+	elif by == 1:
+		okay += 1
+	else:
+		missed += 1
+	
+	score += by * combo
+	$UI/Label.text = str(score)
+	if combo > 0:
+		$UI/Combo.text = str(combo) + " combo!"   # only once you add a Combo node under UI
+		if combo > max_combo:
+			max_combo = combo
+	else:
+		$UI/Combo.text = ""
+	
+func _on_conductor_beat(position: Variant) -> void:
+	print("beat signal: ", position)
+	song_position_in_beats = position
+	if song_position_in_beats > 36:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 98:
+		spawn_1_beat = 2
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	# ...(keep the rest of your existing threshold logic exactly as-is)...
+	if song_position_in_beats > 404:
+		Globals.set_score(score)
+		Globals.combo = max_combo
+		Globals.great = great
+		Globals.good = good
+		Globals.okay = okay
+		Globals.missed = missed
+		if get_tree().change_scene_to_file("res://Scenes/End.tscn") != OK:
+			print("Error changing scene to End")
+
+
+func _on_conductor_measure(position: Variant) -> void:
+	print("measure signal: ", position)
+	if position == 1:
+		_spawn_notes(spawn_1_beat)
+	elif position == 2:
+		_spawn_notes(spawn_2_beat)
+	elif position == 3:
+		_spawn_notes(spawn_3_beat)
+	elif position == 4:
+		_spawn_notes(spawn_4_beat)

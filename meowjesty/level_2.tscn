@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://d2le27w534b2y" path="res://level_2.gd" id="1_1y8me"]
 [ext_resource type="PackedScene" uid="uid://c7x1vs2wmthij" path="res://platforms/platform.tscn" id="2_nmjpi"]
 [ext_resource type="Script" uid="uid://rq2062u32cos" path="res://players/player.gd" id="3_7dov7"]
+[ext_resource type="PackedScene" uid="uid://brf2n4p80lw5w" path="res://conductor.tscn" id="3_ehv2h"]
 [ext_resource type="PackedScene" uid="uid://dmd24jrkrkamh" path="res://players/enemy.tscn" id="3_xdadj"]
 [ext_resource type="Texture2D" uid="uid://cca0o7n543yct" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Attack.png" id="4_ehv2h"]
 [ext_resource type="Texture2D" uid="uid://bnw8hsuxcaxsw" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Hurt.png" id="5_15wb7"]
 [ext_resource type="Texture2D" uid="uid://dyrjnhj7et0q4" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Walk.png" id="6_eoq84"]
+[ext_resource type="Script" uid="uid://dt5bdmjcd5orv" path="res://hit_node.gd" id="7_7dov7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5illy"]
 atlas = ExtResource("4_ehv2h")
@@ -192,9 +194,12 @@ size = Vector2(283, 218)
 script = ExtResource("1_1y8me")
 enemy_scene = ExtResource("3_xdadj")
 
+[node name="Conductor" parent="." unique_id=765007323 instance=ExtResource("3_ehv2h")]
+
+[node name="StartTimer2" type="Timer" parent="Conductor" unique_id=832298990]
+
 [node name="enemy" parent="." unique_id=1948982418 instance=ExtResource("3_xdadj")]
-position = Vector2(1924, -88)
-collision_mask = 1
+position = Vector2(-309, -1286)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=773950627]
 position = Vector2(-27, -39)
@@ -207,6 +212,10 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_uupf1")
 animation = &"hurt"
 autoplay = "running"
+script = ExtResource("7_7dov7")
+
+[node name="PushTimer" type="Timer" parent="player/AnimatedSprite2D" unique_id=91290097]
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=190331861]
 position = Vector2(658, -310)
@@ -262,6 +271,10 @@ is_ground = true
 [node name="UI" type="CanvasLayer" parent="." unique_id=1448024786]
 
 [node name="Label" type="Label" parent="UI" unique_id=1860991662]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Combo" type="Label" parent="UI" unique_id=2106134106]
 offset_right = 40.0
 offset_bottom = 23.0
 

@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("attack")
 		
+		
 		# Call deal_damage directly - deal_damage handles finding overlapping enemies
 		deal_damage()
 
@@ -54,6 +55,7 @@ func deal_damage() -> void:
 
 	if closest_enemy != null:
 		closest_enemy.take_damage()
+		
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_on_floor():
