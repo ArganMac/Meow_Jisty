@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://sprites/playbutton.png" id="4_fsjci"]
 [ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Fancy Feast (Delayed).mp3" id="4_piodc"]
 [ext_resource type="PackedScene" uid="uid://by4qo67o53s1b" path="res://opening_talk.tscn" id="5_piodc"]
+[ext_resource type="Texture2D" uid="uid://dn0l81tjyiro3" path="res://sprites/download.png" id="6_3n4e4"]
+[ext_resource type="Script" uid="uid://cffp3ng3g505v" path="res://winning_page.gd" id="7_qwp6t"]
 
 [node name="Meowjesty" type="Node2D" unique_id=1025614492]
 script = ExtResource("1_fsjci")
@@ -34,4 +36,13 @@ stream = ExtResource("4_piodc")
 
 [node name="Control" parent="." unique_id=1998204998 instance=ExtResource("5_piodc")]
 
+[node name="winning_page" type="Sprite2D" parent="." unique_id=2135436718]
+visible = false
+position = Vector2(1004.8921, 553.3336)
+rotation = -1.5707964
+scale = Vector2(1.5932978, 1.590049)
+texture = ExtResource("6_3n4e4")
+script = ExtResource("7_qwp6t")
+
 [connection signal="pressed" from="CanvasGroup/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="CanvasGroup/Button/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
