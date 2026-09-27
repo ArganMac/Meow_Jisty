@@ -185,16 +185,20 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcfg1"]
 size = Vector2(154, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j8ne"]
+size = Vector2(283, 218)
+
 [node name="level2" type="Node2D" unique_id=1675953455]
 script = ExtResource("1_1y8me")
 enemy_scene = ExtResource("3_xdadj")
 
 [node name="enemy" parent="." unique_id=1948982418 instance=ExtResource("3_xdadj")]
 position = Vector2(1924, -88)
+collision_mask = 1
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=773950627]
 position = Vector2(-27, -39)
-collision_layer = 2
+collision_layer = 4
 script = ExtResource("3_7dov7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=190358651]
@@ -218,6 +222,14 @@ rotation = -0.0018314999
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=588040385]
 position = Vector2(5, -5.5)
 shape = SubResource("RectangleShape2D_xcfg1")
+
+[node name="AttackArea" type="Area2D" parent="player" unique_id=1297868649]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/AttackArea" unique_id=1196778858]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_7j8ne")
 
 [node name="platform" parent="." unique_id=1146163633 instance=ExtResource("2_nmjpi")]
 position = Vector2(0, 125)
@@ -254,7 +266,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=979663459]
-wait_time = 2.0
+wait_time = 0.139
 autostart = true
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var attack_area: Area2D = $AttackArea
 const SPEED = 800.0
 const JUMP_VELOCITY = -600.0
 var combo = 0
 var score = 0
 
 var last_animation = "running"
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -17,12 +17,15 @@ func _physics_process(delta: float) -> void:
 		last_animation = $AnimatedSprite2D.animation
 		$AnimatedSprite2D.play("running")
 		
+	# Attack Input
 	if Input.is_action_just_pressed("hit_z") or Input.is_action_just_pressed("hit_x"):
 		if $AnimatedSprite2D.animation != "attack":
 			last_animation = $AnimatedSprite2D.animation
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("attack")
-	
+		
+		# Call deal_damage directly - deal_damage handles finding overlapping enemies
+		deal_damage()
 
 	# Handle jump.
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
@@ -31,24 +34,27 @@ func _physics_process(delta: float) -> void:
 			last_animation = $AnimatedSprite2D.animation
 		$AnimatedSprite2D.play("jumping")
 		
-		
-	# Continously moving
+	# Continuously moving
 	velocity.x = SPEED
 
 	move_and_slide()
 
+func deal_damage() -> void:
+	var overlapping_bodies = attack_area.get_overlapping_bodies()
+	
+	var closest_enemy: Node2D = null
+	var shortest_distance: float = INF
+
+	for body in overlapping_bodies:
+		if body is Enemy:
+			var distance = global_position.distance_squared_to(body.global_position)
+			if distance < shortest_distance:
+				shortest_distance = distance
+				closest_enemy = body
+
+	if closest_enemy != null:
+		closest_enemy.take_damage()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_on_floor():
 		$AnimatedSprite2D.play("running")
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body == $"../enemy"):
-		body.animation = "hurt"
-		pass
-	pass
-
-
-func _on_spawn_timer_timeout() -> void:
-	pass # Replace with function body.

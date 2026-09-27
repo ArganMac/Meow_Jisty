@@ -69,15 +69,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu7mp"]
 size = Vector2(137, 73)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_msd78"]
-size = Vector2(283, 218)
-
 [node name="enemy" type="CharacterBody2D" unique_id=1948982418]
 z_index = -1
 collision_layer = 2
 script = ExtResource("1_1dmno")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1841011194]
+z_index = -1
 position = Vector2(-39, -90)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_nmjpi")
@@ -86,16 +84,6 @@ autoplay = "walk"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138650663]
+z_index = -1
 position = Vector2(1.5, 9.5)
 shape = SubResource("RectangleShape2D_wu7mp")
-
-[node name="attack area" type="Area2D" parent="." unique_id=291715221]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack area" unique_id=2034119312]
-position = Vector2(0.5, -11)
-shape = SubResource("RectangleShape2D_msd78")
-
-[connection signal="body_entered" from="attack area" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="attack area" to="." method="_on_attack_area_body_exited"]
