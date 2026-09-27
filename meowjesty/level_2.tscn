@@ -199,7 +199,7 @@ enemy_scene = ExtResource("3_xdadj")
 [node name="StartTimer2" type="Timer" parent="Conductor" unique_id=832298990]
 
 [node name="enemy" parent="." unique_id=1948982418 instance=ExtResource("3_xdadj")]
-position = Vector2(-309, -1286)
+position = Vector2(-580, -613)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=773950627]
 position = Vector2(-27, -39)
@@ -268,19 +268,21 @@ is_ground = true
 position = Vector2(3000, 125)
 is_ground = true
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1448024786]
-
-[node name="Label" type="Label" parent="UI" unique_id=1860991662]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Combo" type="Label" parent="UI" unique_id=2106134106]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="SpawnTimer" type="Timer" parent="." unique_id=979663459]
 wait_time = 0.139
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1478666531]
+
+[node name="UI" type="CanvasLayer" parent="CanvasLayer" unique_id=263681745]
+
+[node name="Label" type="Label" parent="CanvasLayer/UI" unique_id=2049957434]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Combo" type="Label" parent="CanvasLayer/UI" unique_id=290408450]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
