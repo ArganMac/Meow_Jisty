@@ -38,6 +38,7 @@ stream = ExtResource("4_piodc")
 
 [node name="winning_page" type="Sprite2D" parent="." unique_id=2135436718]
 visible = false
+z_index = 5
 position = Vector2(1004.8921, 553.3336)
 rotation = -1.5707964
 scale = Vector2(1.5932978, 1.590049)
