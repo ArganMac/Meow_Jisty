@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://brf2n4p80lw5w"]
 
 [ext_resource type="Script" uid="uid://csaauybqg7qpx" path="res://Scripts/Conductor.gd" id="1_lxg7y"]
-[ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Lecture Hall.mp3" id="2_c3rm7"]
+[ext_resource type="AudioStream" uid="uid://c6n5coxuanrfu" path="res://Songs/Fancy Feast (Delayed).mp3" id="2_lxg7y"]
 
 [node name="Conductor" type="Node2D" unique_id=310084230]
 script = ExtResource("1_lxg7y")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=328754552]
-stream = ExtResource("2_c3rm7")
+stream = ExtResource("2_lxg7y")
