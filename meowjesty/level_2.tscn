@@ -5,10 +5,13 @@
 [ext_resource type="Script" uid="uid://rq2062u32cos" path="res://players/player.gd" id="3_7dov7"]
 [ext_resource type="PackedScene" uid="uid://brf2n4p80lw5w" path="res://conductor.tscn" id="3_ehv2h"]
 [ext_resource type="PackedScene" uid="uid://dmd24jrkrkamh" path="res://players/enemy.tscn" id="3_xdadj"]
+[ext_resource type="Script" uid="uid://b8xh65j0l5663" path="res://bg_1.gd" id="4_15wb7"]
 [ext_resource type="Texture2D" uid="uid://cca0o7n543yct" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Attack.png" id="4_ehv2h"]
 [ext_resource type="Texture2D" uid="uid://bnw8hsuxcaxsw" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Hurt.png" id="5_15wb7"]
 [ext_resource type="Texture2D" uid="uid://dyrjnhj7et0q4" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Walk.png" id="6_eoq84"]
 [ext_resource type="Script" uid="uid://dt5bdmjcd5orv" path="res://hit_node.gd" id="7_7dov7"]
+[ext_resource type="Texture2D" uid="uid://dctp86o04dlr5" path="res://sprites/Forest_Background.png" id="8_7dov7"]
+[ext_resource type="Script" uid="uid://b8gyrbuigxgk4" path="res://ui.gd" id="10_15wb7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5illy"]
 atlas = ExtResource("4_ehv2h")
@@ -50,27 +53,27 @@ region = Rect2(144, 0, 48, 48)
 atlas = ExtResource("6_eoq84")
 region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmjpi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_15wb7"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdadj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoq84"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1y8me"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl73a"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ypv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbcdb"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0s5r2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s77qv"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7j8ne"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hnhx"]
 atlas = ExtResource("6_eoq84")
 region = Rect2(240, 0, 48, 48)
 
@@ -156,22 +159,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nmjpi")
+"texture": SubResource("AtlasTexture_15wb7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xdadj")
+"texture": SubResource("AtlasTexture_eoq84")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1y8me")
+"texture": SubResource("AtlasTexture_yl73a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ypv")
+"texture": SubResource("AtlasTexture_xbcdb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0s5r2")
+"texture": SubResource("AtlasTexture_s77qv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7j8ne")
+"texture": SubResource("AtlasTexture_5hnhx")
 }],
 "loop": 1,
 "name": &"running",
@@ -185,10 +188,10 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcfg1"]
-size = Vector2(154, 71)
+size = Vector2(272, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j8ne"]
-size = Vector2(283, 218)
+size = Vector2(331, 249)
 
 [node name="level2" type="Node2D" unique_id=1675953455]
 script = ExtResource("1_1y8me")
@@ -199,19 +202,22 @@ enemy_scene = ExtResource("3_xdadj")
 [node name="StartTimer2" type="Timer" parent="Conductor" unique_id=832298990]
 
 [node name="enemy" parent="." unique_id=1948982418 instance=ExtResource("3_xdadj")]
-position = Vector2(-580, -613)
+position = Vector2(1924, -88)
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=773950627]
+[node name="player" type="CharacterBody2D" parent="." unique_id=773950627 node_paths=PackedStringArray("ui")]
 position = Vector2(-27, -39)
 collision_layer = 4
 script = ExtResource("3_7dov7")
+ui = NodePath("../UI")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=190358651]
-position = Vector2(14.99994, -76.99999)
-scale = Vector2(5, 5)
+position = Vector2(14.99994, -76.49999)
+scale = Vector2(5, 5.04)
 sprite_frames = SubResource("SpriteFrames_uupf1")
-animation = &"hurt"
+animation = &"attack"
 autoplay = "running"
+frame = 2
+frame_progress = 1.0
 script = ExtResource("7_7dov7")
 
 [node name="PushTimer" type="Timer" parent="player/AnimatedSprite2D" unique_id=91290097]
@@ -221,7 +227,7 @@ one_shot = true
 position = Vector2(658, -310)
 
 [node name="SpawnPath" type="Path2D" parent="player/Camera2D" unique_id=2130391810]
-position = Vector2(-631, 349)
+position = Vector2(-800, 349)
 curve = SubResource("Curve2D_n7ypv")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="player/Camera2D/SpawnPath" unique_id=129873650]
@@ -229,7 +235,7 @@ position = Vector2(2029, -225)
 rotation = -0.0018314999
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=588040385]
-position = Vector2(5, -5.5)
+position = Vector2(64, -5.5)
 shape = SubResource("RectangleShape2D_xcfg1")
 
 [node name="AttackArea" type="Area2D" parent="player" unique_id=1297868649]
@@ -237,8 +243,17 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/AttackArea" unique_id=1196778858]
-position = Vector2(0.5, -11)
+position = Vector2(24.5, -26.5)
 shape = SubResource("RectangleShape2D_7j8ne")
+
+[node name="bg1" type="Sprite2D" parent="." unique_id=1764054297]
+z_index = -2
+position = Vector2(681.98254, -430.0625)
+scale = Vector2(3.6586072, 3.9864755)
+texture = ExtResource("8_7dov7")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.43, 305)
+script = ExtResource("4_15wb7")
 
 [node name="platform" parent="." unique_id=1146163633 instance=ExtResource("2_nmjpi")]
 position = Vector2(0, 125)
@@ -268,9 +283,39 @@ is_ground = true
 position = Vector2(3000, 125)
 is_ground = true
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=1448024786]
+script = ExtResource("10_15wb7")
+
+[node name="Label" type="Label" parent="UI" unique_id=1860991662]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
+text = "Score: 0    Indicator: Perfect
+Accuracy: "
 [node name="SpawnTimer" type="Timer" parent="." unique_id=979663459]
-wait_time = 0.139
+wait_time = 0.605
 autostart = true
+
+[node name="bg2" type="Sprite2D" parent="." unique_id=1342967225]
+z_index = -2
+position = Vector2(2710, -430.062)
+scale = Vector2(3.659, 3.986)
+texture = ExtResource("8_7dov7")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.43, 305)
+script = ExtResource("4_15wb7")
+
+[node name="bg3" type="Sprite2D" parent="." unique_id=2048837290]
+z_index = -2
+position = Vector2(4738.017, -430.062)
+scale = Vector2(3.659, 3.986)
+texture = ExtResource("8_7dov7")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.43, 305)
+script = ExtResource("4_15wb7")
+
+[node name="KillTimer" type="Timer" parent="." unique_id=2038401088]
+wait_time = 0.06
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1478666531]
 
@@ -286,3 +331,4 @@ offset_bottom = 23.0
 
 [connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="KillTimer" to="enemy" method="_on_kill_timer_timeout"]

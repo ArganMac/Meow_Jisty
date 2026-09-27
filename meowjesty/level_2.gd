@@ -6,6 +6,7 @@ extends Node2D
 var score = 0
 var combo = 0
 
+
 var max_combo = 0
 var great = 0
 var good = 0
@@ -44,8 +45,6 @@ func _on_Conductor_measure(position):
 		_spawn_notes(spawn_3_beat)
 	elif position == 4:
 		_spawn_notes(spawn_4_beat)
-
-	
 	
 func _spawn_notes(to_spawn):
 	print("_spawn_notes called with: ", to_spawn)
@@ -137,3 +136,14 @@ func _on_conductor_measure(position: Variant) -> void:
 		_spawn_notes(spawn_3_beat)
 	elif position == 4:
 		_spawn_notes(spawn_4_beat)
+	if enemy_scene == null:
+		print("Cannot spawn: enemy_scene is null.")
+		return
+
+	var enemy = enemy_scene.instantiate()
+	spawn_location.progress_ratio = 0.5
+	enemy.global_position = spawn_location.global_position
+	
+	print("Spawning enemy at position: ", enemy.global_position)
+	get_tree().current_scene.add_child(enemy)
+	
