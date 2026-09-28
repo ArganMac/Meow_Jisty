@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://21gj6om8f3ki"]
 
-[ext_resource type="Script" uid="uid://ccwcp0hu6sn21" path="res://meowjesty.gd" id="1_fsjci"]
+[node name="Level1" type="Node2D" unique_id=1025614492]
 [ext_resource type="Texture2D" uid="uid://c7byy1tefbxf6" path="res://sprites/bglogo.png" id="3_bkr5c"]
 [ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://sprites/playbutton.png" id="4_fsjci"]
 [ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Fancy Feast (Delayed).mp3" id="4_piodc"]
