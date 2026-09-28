@@ -111,6 +111,8 @@ func _input(event: InputEvent) -> void:
 		else:
 			current_line_index += 1
 			display_current_line()
+	elif event.is_action_pressed("hit_tilde"):
+		get_tree().change_scene_to_file("res://level_2.tscn")
 
 func display_current_line() -> void:
 	if current_line_index >= dialogue_queue.size():

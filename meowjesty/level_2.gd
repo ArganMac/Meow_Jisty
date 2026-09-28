@@ -151,4 +151,5 @@ func _on_conductor_measure(position: Variant) -> void:
 		
 
 func _on_end_timer_timeout() -> void:
+	print("End_timer finished!")
 	get_tree().change_scene_to_file("res://winner.tscn")
