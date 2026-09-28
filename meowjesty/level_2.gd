@@ -148,3 +148,7 @@ func _on_conductor_measure(position: Variant) -> void:
 		_spawn_notes(spawn_3_beat)
 	elif position == 4:
 		_spawn_notes(spawn_4_beat)
+		
+
+func _on_end_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://winner.tscn")

@@ -4,6 +4,17 @@ extends Control
 @onready var text_label: RichTextLabel = null
 @onready var audio_player: AudioStreamPlayer = null
 
+@onready var curr_Felix: TextureRect = null
+@onready var curr_Opp: TextureRect = null
+
+var asset_felix_viking = preload("res://sprites/Felix_Locked.png")
+var asset_felix_blep = preload("res://sprites/Felix_Geeked.png")
+var asset_felix_stare = preload("res://sprites/Felix_Default.png")
+
+var asset_dog_king = preload("res://sprites/DKing.png")         
+var asset_dog_geeked = preload("res://sprites/Dog_Geeked.png")       
+var asset_dog_brain = preload("res://sprites/Dawg.png")        
+
 var typewriter_sound = preload("res://Purrin.wav")
 var king_sound = preload("res://Barkin.wav")
 var char_delay: float = 0.0375
@@ -24,7 +35,7 @@ var dialogue_queue: Array[String] = [
 	"actually hold on, wait a minute",
 	"You ruin my banquet, the one thing distracting me from my kidnapped daughter,",
 	"YOUR DAUGHTER WAS KIDNAPPED???",
-	"In the unfinished prologue of the game that is mentioned first, but the juedges dont know that",
+	"(In the unfinished prologue of the game that is mentioned first, but the juedges dont know that)",
 	"Anyway.. and then you waffle about these 'endless limtits' while you do NOTHING.",
 	"well ackshully-",
 	"leave my kingdom, Felix. And do not return.",
@@ -42,12 +53,40 @@ var is_typing: bool = false
 var skip_requested: bool = false
 
 func _ready() -> void:
+
 	dialogue_box = generate_dialogue_box()
 	add_child(dialogue_box)
 	
+	curr_Felix = TextureRect.new()
+	curr_Felix.name = "CurrFelix"
+	curr_Felix.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	curr_Felix.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	curr_Felix.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	curr_Felix.anchor_left = 0.125
+	curr_Felix.anchor_right = 0.500 
+	curr_Felix.anchor_top = 0.325   
+	curr_Felix.anchor_bottom = 0.70
+	curr_Felix.grow_horizontal = Control.GROW_DIRECTION_END
+	curr_Felix.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	curr_Felix.texture = asset_felix_stare 
+	add_child(curr_Felix)
+	
+	curr_Opp = TextureRect.new()
+	curr_Opp.name = "CurrOpp"
+	curr_Opp.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	curr_Opp.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	curr_Opp.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	curr_Opp.anchor_left = 0.500   
+	curr_Opp.anchor_right = 0.875
+	curr_Opp.anchor_top = 0.325
+	curr_Opp.anchor_bottom = 0.70
+	curr_Opp.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	curr_Opp.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	curr_Opp.texture = asset_dog_king 
+	add_child(curr_Opp)
+	
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
-	audio_player.volume_db = -6.00
 	
 	text_label = RichTextLabel.new()
 	text_label.name = "DialogueLabel"
@@ -75,20 +114,57 @@ func _input(event: InputEvent) -> void:
 
 func display_current_line() -> void:
 	if current_line_index >= dialogue_queue.size():
-
+		get_tree().change_scene_to_file("res://level_2.tscn")
+		$AudioStreamPlayer.stop()
+		curr_Felix.queue_free()
+		curr_Opp.queue_free()
 		dialogue_box.queue_free()
-		$"..".get_tree().change_scene_to_file("res://level_2.tscn")
+		
 		return
 		
 	var current_index: int = current_line_index
 	
-	# Maps your requested 1-based lines to 0-based code indices
+	# --- Dynamic Cat (Felix) Sprite State Updates ---
+	var felix_viking_indexes = [7, 9, 25]
+	var felix_blep_indexes = [17, 19, 21, 22]
+	var felix_stare_indexes = [0, 2, 5, 14, 20, 23,]
+	
+	if current_index in felix_viking_indexes:
+		curr_Felix.texture = asset_felix_viking 
+	elif current_index in felix_blep_indexes:
+		curr_Felix.texture = asset_felix_blep   
+	elif current_index in felix_stare_indexes:
+		curr_Felix.texture = asset_felix_stare  
+
+	# --- Dynamic Dog Variant Sprite State Updates ---
+	if current_index >= 21:
+		curr_Opp.texture = asset_dog_brain   
+	elif current_index >= 16:
+		curr_Opp.texture = asset_dog_king    
+	elif current_index >= 15:
+		curr_Opp.texture = asset_dog_brain   
+	elif current_index >= 13:
+		curr_Opp.texture = asset_dog_king    
+	elif current_index >= 11:
+		curr_Opp.texture = asset_dog_brain   
+	elif current_index >= 8:
+		curr_Opp.texture = asset_dog_geeked  
+	elif current_index >= 6:
+		curr_Opp.texture = asset_dog_brain   
+	elif current_index >= 4:
+		curr_Opp.texture = asset_dog_geeked  
+	else:
+		curr_Opp.texture = asset_dog_king    
+
+	# --- Voice Asset Key Checks ---
 	var purrin_indexes = [0, 2, 5, 7, 11, 15, 17, 19, 24, 27, 29, 31, 33, 35]
 	
 	if current_index in purrin_indexes:
 		audio_player.stream = typewriter_sound
+		audio_player.volume_db = -6.00
 	else:
 		audio_player.stream = king_sound
+		audio_player.volume_db = -12.00
 		
 	type_text(dialogue_queue[current_index])
 
