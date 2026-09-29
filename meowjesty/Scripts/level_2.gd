@@ -5,7 +5,7 @@ extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
 var score = 0
 var combo = 0
-
+var notes := load_notes("res://note_maps/Fancy_Feast.txt")
 	
 
 var max_combo = 0
@@ -24,7 +24,7 @@ var sec_per_beat = 60.0 / bpm
 
 var spawn_1_beat = 0
 var spawn_2_beat = 0
-var spawn_3_beat = 1
+var spawn_3_beat = 0
 var spawn_4_beat = 0
 
 
@@ -33,10 +33,8 @@ func _ready() -> void:
 	randomize()
 	$Conductor.beat.connect(_on_conductor_beat)
 	$Conductor.measure.connect(_on_conductor_measure)
-	$Conductor.play_with_beat_offset(7.75)
-	if enemy_scene == null:
-		print("ERROR: enemy_scene is NOT assigned in the Inspector!")
-
+	$Conductor.play_with_beat_offset(5.0)
+	
 func _on_spawn_timer_timeout() -> void:
 	print("Timer ticked!")
 	
@@ -45,30 +43,25 @@ func _on_spawn_timer_timeout() -> void:
 		return
 
 
-func _on_Conductor_measure(position):
+func _on_Conductor_measure(position): # spawns a note, currently one enemy
 	print("measure signal: ", position)
 	if position == 1:
-		_spawn_notes(spawn_1_beat)
+		_spawn_notes(spawn_1_beat) # = 1 beat
 	elif position == 2:
-		_spawn_notes(spawn_2_beat)
+		_spawn_notes(spawn_2_beat) # = 2 beats
 	elif position == 3:
-		_spawn_notes(spawn_3_beat)
+		_spawn_notes(spawn_3_beat) # = 3 beats
 	elif position == 4:
-		_spawn_notes(spawn_4_beat)
-
-
+		_spawn_notes(spawn_4_beat) # = 4 beats
 	var enemy = enemy_scene.instantiate()
 	spawn_location.progress_ratio = 0.5
 	enemy.global_position = spawn_location.global_position
-	
 	print("Spawning enemy at position: ", enemy.global_position)
 	get_tree().current_scene.add_child(enemy)
-	
-	
+
 func _spawn_notes(to_spawn):
 	print("_spawn_notes called with: ", to_spawn)
 	if to_spawn > 0:
-		
 		var enemy = enemy_scene.instantiate()
 		spawn_location.progress_ratio = 0.1
 		enemy.global_position = spawn_location.global_position
@@ -96,44 +89,27 @@ func increment_score(by):
 	
 	
 	
-func _on_conductor_beat(position: Variant) -> void:
+func _on_conductor_beat(position: Variant) -> void: # contains the order in which notes appear, how they appear
 	print("beat signal: ", position)
 	song_position_in_beats = position
-	if song_position_in_beats > 36:
-		spawn_1_beat = 1
-		spawn_2_beat = 1
-		spawn_3_beat = 1
-		spawn_4_beat = 1
-	if song_position_in_beats > 98:
-		spawn_1_beat = 1
-		spawn_2_beat = 1
-		spawn_3_beat = 0
-		spawn_4_beat = 1
-	if song_position_in_beats > 132:
-		spawn_1_beat = 0
-		spawn_2_beat = 1
-		spawn_3_beat = 0
-		spawn_4_beat = 1
-	if song_position_in_beats > 162:
-		spawn_1_beat = 2
-		spawn_2_beat = 2
-		spawn_3_beat = 1
-		spawn_4_beat = 1
-	if song_position_in_beats > 194:
-		spawn_1_beat = 2
-		spawn_2_beat = 2
-		spawn_3_beat = 1
-		spawn_4_beat = 2
-	if song_position_in_beats > 228:
-		spawn_1_beat = 0
-		spawn_2_beat = 2
-	if song_position_in_beats > 232:
-		Globals.set_score(score)
-		Globals.combo = max_combo
-		Globals.great = great
-		Globals.good = good
-		Globals.okay = okay
-		Globals.missed = missed
+	for i in range(notes.size()):
+		for j in range(3):
+			print(str(notes[i]) + " read from file")
+			if notes[i] == 1 and i == position:
+				if j == 0:
+					spawn_1_beat = 1
+				elif j == 1:
+					spawn_2_beat = 1
+				elif j == 2:
+					spawn_3_beat = 1
+				else:
+					spawn_4_beat = 1
+			if j == 3:
+				spawn_1_beat = 0
+				spawn_2_beat = 0
+				spawn_3_beat = 0
+				spawn_4_beat = 0
+
 
 
 
@@ -147,7 +123,16 @@ func _on_conductor_measure(position: Variant) -> void:
 		_spawn_notes(spawn_3_beat)
 	elif position == 4:
 		_spawn_notes(spawn_4_beat)
-		
+
+func load_notes(path: String) -> Array[int]: # takes the map data from a .txt file
+	var result: Array[int] = []
+	var text := FileAccess.get_file_as_string(path)
+	for c in text:
+		if c == "0":
+			result.append(0)
+		elif c == "1":
+			result.append(1)
+	return result
 
 func _on_end_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://Scenes/winner.tscn")
