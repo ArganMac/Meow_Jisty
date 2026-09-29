@@ -112,14 +112,20 @@ func _input(event: InputEvent) -> void:
 			current_line_index += 1
 			display_current_line()
 
+
 func display_current_line() -> void:
 	if current_line_index >= dialogue_queue.size():
 		get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 		$AudioStreamPlayer.stop()
-		curr_Felix.queue_free()
-		curr_Opp.queue_free()
-		dialogue_box.queue_free()
-		
+		if is_instance_valid(curr_Felix):
+			curr_Felix.queue_free()
+
+		if is_instance_valid(curr_Opp):
+			curr_Opp.queue_free()
+
+		if is_instance_valid(dialogue_box):
+			dialogue_box.queue_free()
+
 		return
 		
 	var current_index: int = current_line_index
