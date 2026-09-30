@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 		
 	if is_dead:
-		$"AnimatedSprite2D".animation = "hurt"
+		$AnimatedSprite2D.animation = "hurt"
 		SPEED = -300
 		
 	move_and_slide()
@@ -38,17 +38,17 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage() -> void:
 	is_dead = true
+	$KillTimer.start()
+	
 	
 func check_accuracy() -> void:
 	var diff = position.x - $"../player".position.x
 	if diff > -20 and diff < 100:
 		$"../player".indicator = "Perfect"
 		$"../player".score += 300
-		$"../KillTimer".start()
 	elif diff < -20 and diff > -100:
 		$"../player".indicator = "Okay"
 		$"../player".score += 100
-		$"../KillTimer".start()
 	elif diff < -20:
 		$"../player".indicator = "Miss"
 

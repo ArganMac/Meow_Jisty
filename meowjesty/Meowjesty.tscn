@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bkjvlheqyj5uq"]
+
+[ext_resource type="Script" uid="uid://ccwcp0hu6sn21" path="res://meowjesty.gd" id="1_fsjci"]
+[ext_resource type="Texture2D" uid="uid://c7byy1tefbxf6" path="res://sprites/bglogo.png" id="3_bkr5c"]
+[ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://sprites/playbutton.png" id="4_fsjci"]
+[ext_resource type="AudioStream" uid="uid://debknoplsxal5" path="res://Songs/Fancy Feast (Delayed).mp3" id="4_piodc"]
+[ext_resource type="PackedScene" uid="uid://by4qo67o53s1b" path="res://opening_talk.tscn" id="5_piodc"]
+[ext_resource type="AudioStream" uid="uid://cxc0nxpr7hxe4" path="res://Main Men-MEW.mp3" id="6_2tnc7"]
+
+[node name="Meowjesty" type="Node2D" unique_id=1025614492]
+script = ExtResource("1_fsjci")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=189153752]
+
+[node name="BG" type="Sprite2D" parent="CanvasGroup" unique_id=1471019707]
+position = Vector2(962, 550)
+scale = Vector2(2.420625, 1.8175001)
+texture = ExtResource("3_bkr5c")
+
+[node name="Button" type="Button" parent="CanvasGroup" unique_id=506111261]
+offset_left = 871.0
+offset_top = 698.0
+offset_right = 1079.0
+offset_bottom = 906.0
+icon = ExtResource("4_fsjci")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasGroup/Button" unique_id=773919573]
+stream = ExtResource("4_piodc")
+
+[node name="Control" parent="." unique_id=1998204998 instance=ExtResource("5_piodc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360447333]
+stream = ExtResource("6_2tnc7")
+volume_db = 4.561
+
+[connection signal="pressed" from="CanvasGroup/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="CanvasGroup/Button/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

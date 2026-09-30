@@ -70,7 +70,7 @@ func _spawn_notes(to_spawn):
 	if to_spawn > 0:
 		
 		var enemy = enemy_scene.instantiate()
-		spawn_location.progress_ratio = 0.1
+		spawn_location.progress_ratio = 0.2
 		enemy.global_position = spawn_location.global_position
 		enemy.global_position.y += 150 
 		print("enemy spawned at: ", enemy.global_position)

@@ -47,17 +47,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func deal_damage() -> void:
-	var overlapping_bodies = attack_area.get_overlapping_bodies()
-	
-	var closest_enemy: Node2D = null
-	var shortest_distance: float = INF
-
-	for body in overlapping_bodies:
-		if body is Enemy:
-			var distance = global_position.distance_squared_to(body.global_position)
-			if distance < shortest_distance:
-				shortest_distance = distance
-				closest_enemy = body
+	var closest_enemy = get_closest_enemy()
 
 	if closest_enemy != null:
 		print(closest_enemy.position.x - position.x)
@@ -70,3 +60,17 @@ func deal_damage() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_on_floor():
 		$AnimatedSprite2D.play("running")
+
+func get_closest_enemy():
+	var overlapping_bodies = attack_area.get_overlapping_bodies()
+	
+	var closest_enemy: Node2D = null
+	var shortest_distance: float = INF
+
+	for body in overlapping_bodies:
+		if body is Enemy:
+			var distance = global_position.distance_squared_to(body.global_position)
+			if distance < shortest_distance:
+				shortest_distance = distance
+				closest_enemy = body
+	return closest_enemy
