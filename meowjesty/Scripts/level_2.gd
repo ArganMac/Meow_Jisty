@@ -16,7 +16,7 @@ var good = 0
 var okay = 0
 var missed = 0
 
-var bpm = 360 # if we want to map eights, bpm can be doubled. (make sure to switch conductor? {needs change})
+var bpm = 180 * 2 # if we want to map eights, bpm can be doubled. (make sure to switch conductor? {needs change})
 
 var song_position = 0.0
 var song_position_in_beats = 0
@@ -35,7 +35,7 @@ func _ready() -> void:
 	randomize()
 	$Conductor.beat.connect(_on_conductor_beat)
 	$Conductor.measure.connect(_on_conductor_measure)
-	$Conductor.play_with_beat_offset(4)
+	$Conductor.play_with_beat_offset(7)
 	
 func _on_spawn_timer_timeout() -> void:
 	print("Timer ticked!")
@@ -63,7 +63,6 @@ func _spawn_notes(to_spawn):
 		var enemy = enemy_scene.instantiate()
 		spawn_location.progress_ratio = 0.1
 		enemy.global_position = spawn_location.global_position
-		enemy.global_position.y += 150 
 		print("enemy spawned at: ", enemy.global_position)
 		get_tree().current_scene.add_child(enemy)
 		

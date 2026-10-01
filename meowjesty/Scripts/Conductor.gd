@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 signal beat(position)
 signal measure(position)
 
-@export var bpm := 360
+@export var bpm := 180 * 2
 @export var measures := 4
 
 var song_position = 0.0
