@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -600.0
 var combo = 0
 var score = 0
 var indicator = "Perfect"
-
+var health = 100
 
 
 var last_animation = "running"
@@ -16,7 +16,20 @@ var last_animation = "running"
 func _physics_process(delta: float) -> void:
 	ui.set_score(score, indicator)
 	
-	
+	if health > 80:
+		$"../UI/health_bar".frame = 0
+		
+	elif health > 60:
+		$"../UI/health_bar".frame = 1
+	elif health > 40:
+		$"../UI/health_bar".frame = 2
+	elif health > 20:
+		$"../UI/health_bar".frame = 3
+	elif health > 0:
+		$"../UI/health_bar".frame = 4
+	else: 
+		$"../UI/health_bar".frame = 5
+		
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -60,6 +73,8 @@ func deal_damage() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_on_floor():
 		$AnimatedSprite2D.play("running")
+
+
 
 func get_closest_enemy():
 	var overlapping_bodies = attack_area.get_overlapping_bodies()

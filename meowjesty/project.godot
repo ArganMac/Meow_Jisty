@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Meowjesty"
-run/main_scene="uid://21gj6om8f3ki"
+run/main_scene="uid://b28h7icc14oue"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
