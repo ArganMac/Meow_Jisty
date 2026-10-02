@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dbej0boowaf4f"]
+
+[node name="Died" type="Node2D" unique_id=1284630664]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110890589]
+position = Vector2(975, 559)
+scale = Vector2(30.78125, 17.84375)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2j266wppf2ss"]
 
-[ext_resource type="Script" uid="uid://rq2062u32cos" path="res://players/player.gd" id="1_l1fvc"]
+[ext_resource type="Script" uid="uid://rq2062u32cos" path="res://Scripts/player.gd" id="1_l1fvc"]
 [ext_resource type="Texture2D" uid="uid://cwonyx3o4mxvj" path="res://sprites/MC_Attack.png" id="2_5illy"]
 [ext_resource type="Texture2D" uid="uid://bnw8hsuxcaxsw" path="res://craftpix-net-610575-free-street-animal-pixel-art-asset-pack/3 Cat/Hurt.png" id="3_0yn0j"]
 [ext_resource type="Texture2D" uid="uid://b2fh15t6ndqd8" path="res://sprites/slurp_juice_jews.png" id="4_ogrlw"]
@@ -168,7 +168,7 @@ one_shot = true
 position = Vector2(658, -310)
 
 [node name="SpawnPath" type="Path2D" parent="Camera2D" unique_id=1443902611]
-position = Vector2(-800, 500)
+position = Vector2(-800, 600)
 curve = SubResource("Curve2D_n7ypv")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="Camera2D/SpawnPath" unique_id=343248089]

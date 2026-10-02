@@ -32,6 +32,7 @@ stream = ExtResource("4_piodc")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360447333]
 stream = ExtResource("6_2tnc7")
 volume_db = 4.561
+parameters/looping = true
 
 [connection signal="pressed" from="CanvasGroup/Button" to="." method="_on_button_pressed"]
 [connection signal="finished" from="CanvasGroup/Button/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

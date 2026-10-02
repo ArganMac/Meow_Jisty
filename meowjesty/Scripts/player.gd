@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 	
 	if health > 80:
 		$"../UI/health_bar".frame = 0
-		
 	elif health > 60:
 		$"../UI/health_bar".frame = 1
 	elif health > 40:
@@ -27,8 +26,10 @@ func _physics_process(delta: float) -> void:
 		$"../UI/health_bar".frame = 3
 	elif health > 0:
 		$"../UI/health_bar".frame = 4
-	else: 
+	elif health < -10: 
 		$"../UI/health_bar".frame = 5
+	else: 
+		get_tree().change_scene_to_file("res://died.tscn")
 		
 	
 	# Add the gravity.
