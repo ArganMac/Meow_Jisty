@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://dbej0boowaf4f"]
 
+[ext_resource type="PackedScene" uid="uid://cyy882nudob5y" path="res://Scenes/pause_menu.tscn" id="1_2fs67"]
+
 [node name="Died" type="Node2D" unique_id=1284630664]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110890589]
-position = Vector2(975, 559)
-scale = Vector2(30.78125, 17.84375)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1555259979]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1500720763 instance=ExtResource("1_2fs67")]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1024732558]
+offset_left = 815.0
+offset_top = 180.0
+offset_right = 1164.0
+offset_bottom = 266.0
+theme_override_font_sizes/font_size = 62
+text = "You died lol"

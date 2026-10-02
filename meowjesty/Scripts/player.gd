@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		$"../UI/health_bar".frame = 3
 	elif health > 0:
 		$"../UI/health_bar".frame = 4
-	elif health < -10: 
+	elif health > -20: 
 		$"../UI/health_bar".frame = 5
 	else: 
 		get_tree().change_scene_to_file("res://died.tscn")
@@ -84,7 +84,7 @@ func get_closest_enemy():
 	var shortest_distance: float = INF
 
 	for body in overlapping_bodies:
-		if body is Enemy:
+		if body is Enemy and not body.is_dead:
 			var distance = global_position.distance_squared_to(body.global_position)
 			if distance < shortest_distance:
 				shortest_distance = distance

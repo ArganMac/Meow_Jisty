@@ -169,7 +169,7 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 40
 
 [node name="EndTimer" type="Timer" parent="." unique_id=1625178972]
-wait_time = 83.0
+wait_time = 79.0
 autostart = true
 
 [node name="MidiPlayer" type="Node" parent="." unique_id=1236284373]

@@ -12,7 +12,8 @@ var most_left
 
 
 func _physics_process(delta: float) -> void:
-	if position.x < -20 and not is_dead:
+	var diff = position.x - $"../player".position.x
+	if diff < -200 and not is_dead:
 		$"../player".indicator = "Miss"
 		$"../player".health -= 20
 		print("died")
@@ -44,16 +45,21 @@ func take_damage() -> void:
 	
 func check_accuracy() -> void:
 	var diff = position.x - $"../player".position.x
-	if diff > -20 and diff < 100:
+	if diff > -20 and diff < 80:
 		$"../player".indicator = "Perfect"
 		$"../player".score += 300
-		$"../player".health += 5
-	elif diff < -20 and diff > -100:
+		if $"../player".health < 100:
+			$"../player".health += 2.5
+		print("adding health by 5")
+	elif diff > -100 and diff < 100:
 		$"../player".indicator = "Okay"
 		$"../player".score += 100
-	elif diff < -20:
+		print("OKAY")
+	elif diff <= -100 or diff > 100:
 		$"../player".indicator = "Miss"
-		$"../player".health -= 20
+		$"../player".health -= 10
+		print("lowering health by 20")
+	print("HIT REGISTERED")
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body is Player:

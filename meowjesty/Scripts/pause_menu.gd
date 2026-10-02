@@ -1,5 +1,7 @@
 extends Control
 
+@export var died_scene: PackedScene
+
 func resume():
 	get_tree().paused = false
 	hide()
@@ -18,6 +20,9 @@ func _ready() -> void:
 	resume()
 
 func _process(delta):
+	if get_tree().current_scene.scene_file_path == "res://died.tscn":
+		pause()
+		$"PanelContainer/VBoxContainer/Resume".visible = false
 	test_esc()
 
 func _on_resume_pressed() -> void:
@@ -25,8 +30,12 @@ func _on_resume_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
+	if get_tree().current_scene.scene_file_path == "res://died.tscn":
+		get_tree().change_scene_to_file("res://level_2.tscn")
+	else:
+		get_tree().reload_current_scene()
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+	
