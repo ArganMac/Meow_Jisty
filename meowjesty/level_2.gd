@@ -6,8 +6,6 @@ extends Node2D
 var score = 0
 var combo = 0
 
-	
-
 var max_combo = 0
 var great = 0
 var good = 0
