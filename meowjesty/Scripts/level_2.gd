@@ -37,6 +37,10 @@ func _ready() -> void:
 	$Conductor.measure.connect(_on_conductor_measure)
 	$Conductor.play_with_beat_offset(7)
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("hit_tilde"):
+		get_tree().change_scene_to_file("res://winner.tscn")
+	
 func _on_spawn_timer_timeout() -> void:
 	print("Timer ticked!")
 	

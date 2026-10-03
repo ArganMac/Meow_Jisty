@@ -28,6 +28,8 @@ icon = ExtResource("4_fsjci")
 stream = ExtResource("4_piodc")
 
 [node name="Control" parent="." unique_id=1998204998 instance=ExtResource("5_piodc")]
+offset_left = -500.0
+offset_right = -500.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360447333]
 stream = ExtResource("6_2tnc7")

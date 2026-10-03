@@ -13,11 +13,12 @@ var most_left
 
 func _physics_process(delta: float) -> void:
 	var diff = position.x - $"../player".position.x
-	if diff < -200 and not is_dead:
+	if diff < -250 and not is_dead:
 		$"../player".indicator = "Miss"
 		$"../player".health -= 20
+		is_dead = true
 		print("died")
-		queue_free()
+		$KillTimer.start()
 	
 	
 	# Add the gravity.
@@ -45,17 +46,17 @@ func take_damage() -> void:
 	
 func check_accuracy() -> void:
 	var diff = position.x - $"../player".position.x
-	if diff > -20 and diff < 80:
+	if diff > 200 and diff < 300:
 		$"../player".indicator = "Perfect"
 		$"../player".score += 300
 		if $"../player".health < 100:
 			$"../player".health += 2.5
 		print("adding health by 5")
-	elif diff > -100 and diff < 100:
+	elif diff > 100 and diff < 400:
 		$"../player".indicator = "Okay"
 		$"../player".score += 100
 		print("OKAY")
-	elif diff <= -100 or diff > 100:
+	elif diff <= 100 or diff > 400:
 		$"../player".indicator = "Miss"
 		$"../player".health -= 10
 		print("lowering health by 20")

@@ -20,7 +20,7 @@ func _ready() -> void:
 	resume()
 
 func _process(delta):
-	if get_tree().current_scene.scene_file_path == "res://died.tscn":
+	if get_tree().current_scene == died_scene:
 		pause()
 		$"PanelContainer/VBoxContainer/Resume".visible = false
 	test_esc()
@@ -30,7 +30,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	if get_tree().current_scene.scene_file_path == "res://died.tscn":
+	if get_tree().current_scene == died_scene:
 		get_tree().change_scene_to_file("res://level_2.tscn")
 	else:
 		get_tree().reload_current_scene()
