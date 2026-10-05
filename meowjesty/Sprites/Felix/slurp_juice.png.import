@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://c07cyl3ax0kvj"
+path="res://.godot/imported/slurp_juice.png-40bec467d6368092bcd5a04b5993796a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/Felix/slurp_juice.png"
+dest_files=["res://.godot/imported/slurp_juice.png-40bec467d6368092bcd5a04b5993796a.ctex"]
 
 [params]
 

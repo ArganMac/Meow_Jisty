@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://b3fhxfrswfjrs"
+path="res://.godot/imported/Dog_Geeked.png-f6e6bc66babeeeb3016abdfc1d093d34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/Dialogue/Dog_Geeked.png"
+dest_files=["res://.godot/imported/Dog_Geeked.png-f6e6bc66babeeeb3016abdfc1d093d34.ctex"]
 
 [params]
 

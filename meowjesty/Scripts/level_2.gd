@@ -35,7 +35,7 @@ func _ready() -> void:
 	randomize()
 	$Conductor.beat.connect(_on_conductor_beat)
 	$Conductor.measure.connect(_on_conductor_measure)
-	$Conductor.play_with_beat_offset(7)
+	$Conductor.play_with_beat_offset(9.5)
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hit_tilde"):

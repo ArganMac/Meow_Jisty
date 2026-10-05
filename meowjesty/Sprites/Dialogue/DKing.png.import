@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://b8ajajjlxfe6j"
+path="res://.godot/imported/DKing.png-942e8e81f1f6660b88ccd65fcb719140.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/Dialogue/DKing.png"
+dest_files=["res://.godot/imported/DKing.png-942e8e81f1f6660b88ccd65fcb719140.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://bs8cqjdjfie4u"
+path="res://.godot/imported/playbutton.png-40c3873448c385a8c3b185fd3ae7f44a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/UI/playbutton.png"
+dest_files=["res://.godot/imported/playbutton.png-40c3873448c385a8c3b185fd3ae7f44a.ctex"]
 
 [params]
 

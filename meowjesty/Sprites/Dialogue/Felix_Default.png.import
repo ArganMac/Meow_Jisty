@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://dfoyxh5u1nni8"
+path="res://.godot/imported/Felix_Default.png-bb6ee753e5d50a5c9bdab31f2b59c8a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/Dialogue/Felix_Default.png"
+dest_files=["res://.godot/imported/Felix_Default.png-bb6ee753e5d50a5c9bdab31f2b59c8a7.ctex"]
 
 [params]
 

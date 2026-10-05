@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxwthe8dmrle"
-path="res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"
+uid="uid://1f6i37tctegg"
+path="res://.godot/imported/yippe.png-4c6d0f68f71417f88dd52e497c0d01ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wizard2.png"
-dest_files=["res://.godot/imported/wizard2.png-15225e875221adba8724970188fd3ac3.ctex"]
+source_file="res://Sprites/UI/yippe.png"
+dest_files=["res://.godot/imported/yippe.png-4c6d0f68f71417f88dd52e497c0d01ec.ctex"]
 
 [params]
 
