@@ -10,15 +10,6 @@ position = Vector2(957.6593, 552)
 scale = Vector2(1.5020499, 1.4891303)
 texture = ExtResource("1_47byl")
 
-[node name="PauseMenu" parent="." unique_id=1500720763 instance=ExtResource("2_gjg4f")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-offset_transform_enabled = true
-offset_transform_position = Vector2(960, 540)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=629581555]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1500720763 instance=ExtResource("2_gjg4f")]
