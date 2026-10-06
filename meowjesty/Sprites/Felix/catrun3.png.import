@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh4xrpjcldgd0"
-path="res://.godot/imported/catrun3.png-e91b2021ec5125bb1eab19918988480b.ctex"
+path="res://.godot/imported/catrun3.png-1c5c5e070328edf3ac5ea09e935f8540.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Felix/catrun3.png"
-dest_files=["res://.godot/imported/catrun3.png-e91b2021ec5125bb1eab19918988480b.ctex"]
+source_file="res://sprites/Felix/catrun3.png"
+dest_files=["res://.godot/imported/catrun3.png-1c5c5e070328edf3ac5ea09e935f8540.ctex"]
 
 [params]
 

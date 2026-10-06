@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b2j266wppf2ss"]
 
 [ext_resource type="Script" uid="uid://rq2062u32cos" path="res://Scripts/player.gd" id="1_l1fvc"]
-[ext_resource type="Texture2D" uid="uid://cwonyx3o4mxvj" path="res://Sprites/Felix/MC_Attack.png" id="2_5illy"]
-[ext_resource type="Texture2D" uid="uid://b2fh15t6ndqd8" path="res://Sprites/Felix/slurp_juice_jews.png" id="4_ogrlw"]
-[ext_resource type="Texture2D" uid="uid://c7njoiihycyvr" path="res://Sprites/Felix/cat_run_3itink.png" id="5_1jwom"]
+[ext_resource type="Texture2D" uid="uid://cwonyx3o4mxvj" path="res://sprites/Felix/MC_Attack.png" id="2_5illy"]
+[ext_resource type="Texture2D" uid="uid://b2fh15t6ndqd8" path="res://sprites/Felix/slurp_juice_jews.png" id="4_ogrlw"]
+[ext_resource type="Texture2D" uid="uid://c7njoiihycyvr" path="res://sprites/Felix/cat_run_3itink.png" id="5_1jwom"]
 [ext_resource type="Script" uid="uid://dt5bdmjcd5orv" path="res://Scripts/hit_node.gd" id="6_lpvu1"]
-[ext_resource type="Texture2D" uid="uid://dn0l81tjyiro3" path="res://Sprites/UI/download.png" id="7_0d8xx"]
+[ext_resource type="Texture2D" uid="uid://dn0l81tjyiro3" path="res://sprites/UI/download.png" id="7_0d8xx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i558w"]
 atlas = ExtResource("2_5illy")

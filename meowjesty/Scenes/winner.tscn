@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fhefxk5hvmr8"]
 
-[ext_resource type="Texture2D" uid="uid://1f6i37tctegg" path="res://Sprites/UI/yippe.png" id="1_47byl"]
+[ext_resource type="Texture2D" uid="uid://1f6i37tctegg" path="res://sprites/UI/yippe.png" id="1_47byl"]
 [ext_resource type="PackedScene" uid="uid://cyy882nudob5y" path="res://Scenes/pause_menu.tscn" id="2_gjg4f"]
 
 [node name="Winner" type="Node2D" unique_id=221592519]

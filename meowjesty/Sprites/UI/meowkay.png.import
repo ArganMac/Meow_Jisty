@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0gwuemn2qdrb"
-path="res://.godot/imported/meowkay.png-aad25292ad6e3a551fdddf072e277dea.ctex"
+path="res://.godot/imported/meowkay.png-6176cf52ac5ad39386e5780ab137c010.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/meowkay.png"
-dest_files=["res://.godot/imported/meowkay.png-aad25292ad6e3a551fdddf072e277dea.ctex"]
+source_file="res://sprites/UI/meowkay.png"
+dest_files=["res://.godot/imported/meowkay.png-6176cf52ac5ad39386e5780ab137c010.ctex"]
 
 [params]
 

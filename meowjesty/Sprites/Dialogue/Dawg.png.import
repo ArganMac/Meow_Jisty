@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dui3g7or067n3"
-path="res://.godot/imported/Dawg.png-2742cd0c900bdef9bbd7fe677a38430a.ctex"
+path="res://.godot/imported/Dawg.png-8947395aa34540e9f77a1d1a044d2ec8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Dialogue/Dawg.png"
-dest_files=["res://.godot/imported/Dawg.png-2742cd0c900bdef9bbd7fe677a38430a.ctex"]
+source_file="res://sprites/Dialogue/Dawg.png"
+dest_files=["res://.godot/imported/Dawg.png-8947395aa34540e9f77a1d1a044d2ec8.ctex"]
 
 [params]
 

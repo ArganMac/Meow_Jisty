@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://bkjvlheqyj5uq"]
+[gd_scene format=4 uid="uid://21gj6om8f3ki"]
 
 [ext_resource type="Script" uid="uid://ccwcp0hu6sn21" path="res://Scripts/meowjesty.gd" id="1_fsjci"]
-[ext_resource type="Texture2D" uid="uid://c7byy1tefbxf6" path="res://Sprites/UI/bglogo.png" id="3_bkr5c"]
-[ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://Sprites/UI/playbutton.png" id="4_fsjci"]
+[ext_resource type="Texture2D" uid="uid://c7byy1tefbxf6" path="res://sprites/UI/bglogo.png" id="3_bkr5c"]
+[ext_resource type="Texture2D" uid="uid://bs8cqjdjfie4u" path="res://sprites/UI/playbutton.png" id="4_fsjci"]
 [ext_resource type="PackedScene" uid="uid://by4qo67o53s1b" path="res://Scenes/opening_talk.tscn" id="5_piodc"]
 [ext_resource type="AudioStream" uid="uid://cxc0nxpr7hxe4" path="res://Audio/Songs/Main Men-MEW.mp3" id="6_2tnc7"]
 

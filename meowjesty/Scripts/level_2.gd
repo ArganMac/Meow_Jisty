@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hit_tilde"):
-		get_tree().change_scene_to_file("res://winner.tscn")
+		get_tree().change_scene_to_file("res://Scenes/winner.tscn")
 	
 func _on_spawn_timer_timeout() -> void:
 	print("Timer ticked!")
