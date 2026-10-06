@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dctp86o04dlr5" path="res://sprites/Level1/Forest_Background.png" id="8_7dov7"]
 [ext_resource type="Script" uid="uid://b8gyrbuigxgk4" path="res://Scripts/ui.gd" id="10_15wb7"]
 [ext_resource type="PackedScene" uid="uid://cyy882nudob5y" path="res://Scenes/pause_menu.tscn" id="10_yl73a"]
-[ext_resource type="PackedScene" uid="uid://dbej0boowaf4f" path="res://Scenes/died.tscn" id="11_xbcdb"]
 [ext_resource type="Script" uid="uid://bf1vnufu7na6x" path="res://addons/midi/MidiPlayer.gd" id="15_78pok"]
 [ext_resource type="Texture2D" uid="uid://dkchqb1eah6t0" path="res://sprites/UI/hp.png" id="15_lvfll"]
 [ext_resource type="Script" uid="uid://jal5apb0a11v" path="res://addons/midi/ADSR.gd" id="16_lvfll"]
@@ -69,6 +68,7 @@ script = ExtResource("1_eoq84")
 enemy_scene = ExtResource("3_xdadj")
 
 [node name="Conductor" parent="." unique_id=765007323 instance=ExtResource("3_ehv2h")]
+stream = null
 volume_db = -2.916
 
 [node name="StartTimer2" type="Timer" parent="Conductor" unique_id=832298990]
@@ -157,7 +157,6 @@ script = ExtResource("4_15wb7")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1478666531]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1500720763 instance=ExtResource("10_yl73a")]
-died_scene = ExtResource("11_xbcdb")
 
 [node name="UI" type="CanvasLayer" parent="CanvasLayer" unique_id=263681745]
 
