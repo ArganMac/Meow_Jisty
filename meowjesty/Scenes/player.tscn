@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c7njoiihycyvr" path="res://sprites/Felix/cat_run_3itink.png" id="5_1jwom"]
 [ext_resource type="Script" uid="uid://dt5bdmjcd5orv" path="res://Scripts/hit_node.gd" id="6_lpvu1"]
 [ext_resource type="Texture2D" uid="uid://dn0l81tjyiro3" path="res://sprites/UI/download.png" id="7_0d8xx"]
+[ext_resource type="Texture2D" uid="uid://ulkmb2csjk77" path="res://sprites/Skeleton/perfect_window.png" id="7_3smsa"]
+[ext_resource type="PackedScene" uid="uid://dauiu6qc2y55w" path="res://Scenes/splash.tscn" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://cbxgttjs6uhh2" path="res://Scenes/perfect_window.gd" id="8_f1ek2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i558w"]
 atlas = ExtResource("2_5illy")
@@ -180,6 +183,8 @@ rotation = -1.5707964
 scale = Vector2(1.5932978, 1.590049)
 texture = ExtResource("7_0d8xx")
 
+[node name="splash_accuracy" parent="Camera2D" unique_id=345676546 instance=ExtResource("8_8erm5")]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1409480772]
 position = Vector2(64, 13)
 shape = SubResource("RectangleShape2D_xcfg1")
@@ -193,5 +198,13 @@ position = Vector2(102.5, -143)
 shape = SubResource("RectangleShape2D_7j8ne")
 
 [node name="Timer" type="Timer" parent="." unique_id=440269665]
+
+[node name="perfect_window" type="Sprite2D" parent="." unique_id=1842637262]
+modulate = Color(1, 1, 1, 0.78039217)
+z_index = -2
+position = Vector2(270, -20)
+scale = Vector2(3, 3)
+texture = ExtResource("7_3smsa")
+script = ExtResource("8_f1ek2")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

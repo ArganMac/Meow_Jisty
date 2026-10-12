@@ -81,7 +81,7 @@ position = Vector2(-27, -60)
 ui = NodePath("../UI")
 
 [node name="bg1" type="Sprite2D" parent="." unique_id=1764054297]
-z_index = -2
+z_index = -100
 position = Vector2(682, -500)
 scale = Vector2(3.6586072, 3.9864755)
 texture = ExtResource("8_7dov7")
@@ -137,7 +137,7 @@ wait_time = 0.605
 autostart = true
 
 [node name="bg2" type="Sprite2D" parent="." unique_id=1342967225]
-z_index = -2
+z_index = -100
 position = Vector2(2710, -500)
 scale = Vector2(3.659, 3.986)
 texture = ExtResource("8_7dov7")
@@ -146,7 +146,7 @@ region_rect = Rect2(0, 0, 555.43, 305)
 script = ExtResource("4_15wb7")
 
 [node name="bg3" type="Sprite2D" parent="." unique_id=2048837290]
-z_index = -2
+z_index = -100
 position = Vector2(4738.017, -500)
 scale = Vector2(3.659, 3.986)
 texture = ExtResource("8_7dov7")

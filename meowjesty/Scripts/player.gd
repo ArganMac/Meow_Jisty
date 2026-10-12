@@ -10,8 +10,10 @@ var score = 0
 var indicator = "Perfect"
 var health = 100
 
-
 var last_animation = "running"
+
+func _ready() -> void:
+	$"Camera2D/splash_accuracy".frame = 4
 
 func _physics_process(delta: float) -> void:
 	ui.set_score(score, indicator)
@@ -68,7 +70,10 @@ func deal_damage() -> void:
 		if not closest_enemy.is_dead:
 			closest_enemy.check_accuracy()
 			closest_enemy.take_damage()
-
+	else:
+		indicator = "Miss"
+		health -= 10
+		print("lowering health by 20")
 		
 
 func _on_animated_sprite_2d_animation_finished() -> void:

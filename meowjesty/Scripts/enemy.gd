@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-
+var splash_scene : PackedScene = preload("res://Scenes/splash.tscn")
 var SPEED = -500.0
 const JUMP_VELOCITY = -400.0
 var YSPEED = -200.0
@@ -17,8 +17,7 @@ func _physics_process(delta: float) -> void:
 		$"../player".indicator = "Miss"
 		$"../player".health -= 20
 		is_dead = true
-		print("died")
-		queue_free()
+		#print("died")
 		$KillTimer.start()
 	
 	
@@ -47,17 +46,20 @@ func take_damage() -> void:
 	
 func check_accuracy() -> void:
 	var diff = position.x - $"../player".position.x
-	if diff > 200 and diff < 300:
+	if diff > 220 and diff < 320:
 		$"../player".indicator = "Perfect"
 		$"../player".score += 300
 		if $"../player".health < 100:
 			$"../player".health += 2.5
 		print("adding health by 5")
-	elif diff > 100 and diff < 400:
+		# Perfect window is centered at diff = 243.5
+		var splash = splash_scene.instantiate()
+		$"../player/Camera2D".add_child(splash)
+	elif diff >= 70 and diff <= 470:
 		$"../player".indicator = "Okay"
 		$"../player".score += 100
 		print("OKAY")
-	elif diff <= 100 or diff > 400:
+	elif diff < 620:
 		$"../player".indicator = "Miss"
 		$"../player".health -= 10
 		print("lowering health by 20")
