@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dauiu6qc2y55w"]
+
+[ext_resource type="Texture2D" uid="uid://ch8u8bhsr25a0" path="res://sprites/Skeleton/fnf arrows.png" id="1_i8nxx"]
+[ext_resource type="Script" uid="uid://g70y75ihlxll" path="res://Scenes/splash.gd" id="2_t3al1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("1_i8nxx")
+region = Rect2(995, 410, 197, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("1_i8nxx")
+region = Rect2(1202, 408, 220, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("1_i8nxx")
+region = Rect2(1435, 410, 255, 295)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("1_i8nxx")
+region = Rect2(1707, 408, 260, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("1_i8nxx")
+region = Rect2(1270, 520, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcfg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}],
+"loop": 0,
+"name": &"perfect",
+"speed": 7.5
+}]
+
+[node name="splash_accuracy" type="AnimatedSprite2D" unique_id=345676546]
+position = Vector2(-388, 290)
+sprite_frames = SubResource("SpriteFrames_xcfg1")
+animation = &"perfect"
+autoplay = "perfect"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_t3al1")

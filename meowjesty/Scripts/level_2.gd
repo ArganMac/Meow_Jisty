@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/winner.tscn")
 	
 func _on_spawn_timer_timeout() -> void:
-	print("Timer ticked!")
+	#print("Timer ticked!")
 	
 	if enemy_scene == null:
 		print("Cannot spawn: enemy_scene is null.")
@@ -50,7 +50,7 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func _on_conductor_measure(position): # calls the values in the measure to be spawned
-	print("measure signal: ", position)
+	#print("measure signal: ", position)
 	if position == 1:
 		_spawn_notes(spawn_1_beat) 
 	elif position == 2:
@@ -62,12 +62,12 @@ func _on_conductor_measure(position): # calls the values in the measure to be sp
 
 
 func _spawn_notes(to_spawn):
-	print("_spawn_notes called with: ", to_spawn)
+	#print("_spawn_notes called with: ", to_spawn)
 	if to_spawn > 0:
 		var enemy = enemy_scene.instantiate()
 		spawn_location.progress_ratio = 0.1
 		enemy.global_position = spawn_location.global_position
-		print("enemy spawned at: ", enemy.global_position)
+		#print("enemy spawned at: ", enemy.global_position)
 		get_tree().current_scene.add_child(enemy)
 		
 		
@@ -77,7 +77,7 @@ func increment_score(by):
 		combo += 1
 	else:
 		combo = 0
-	print("increment_score called with by=", by, " → combo now: ", combo, " score now: ", score + by * combo)
+	#print("increment_score called with by=", by, " → combo now: ", combo, " score now: ", score + by * combo)
 	
 	if by == 3:
 		great += 1
@@ -91,11 +91,11 @@ func increment_score(by):
 	
 	
 func _on_conductor_beat(position: Variant) -> void: # reads notes out of notes array and tells when they spawn.
-	print("beat signal: ", position)
+	#print("beat signal: ", position)
 	song_position_in_beats = position
 	note_position = (position-1)
 	if notes.size() > position-1:
-		print("value read is: " + str(notes[position-1]))
+		#print("value read is: " + str(notes[position-1]))
 		if notes[note_position] != 0: # if there is a note
 			if  measure_beat == 4:
 				spawn_4_beat = 1
@@ -137,9 +137,9 @@ func load_notes(path: String) -> Array[int]: # takes the map data from a .txt fi
 			result.append(0)
 		elif c == "1":
 			result.append(1)
-	print("Notes loaded!")
-	for i in range(result.size()):
-		print(str(result[i]))
+	#print("Notes loaded!")
+	#for i in range(result.size()):
+		#print(str(result[i]))
 	return result
 
 func _on_end_timer_timeout() -> void:

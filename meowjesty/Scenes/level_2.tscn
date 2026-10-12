@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dctp86o04dlr5" path="res://sprites/Level1/Forest_Background.png" id="8_7dov7"]
 [ext_resource type="Script" uid="uid://b8gyrbuigxgk4" path="res://Scripts/ui.gd" id="10_15wb7"]
 [ext_resource type="PackedScene" uid="uid://cyy882nudob5y" path="res://Scenes/pause_menu.tscn" id="10_yl73a"]
-[ext_resource type="PackedScene" uid="uid://dbej0boowaf4f" path="res://Scenes/died.tscn" id="11_xbcdb"]
 [ext_resource type="Script" uid="uid://bf1vnufu7na6x" path="res://addons/midi/MidiPlayer.gd" id="15_78pok"]
 [ext_resource type="Texture2D" uid="uid://dkchqb1eah6t0" path="res://sprites/UI/hp.png" id="15_lvfll"]
 [ext_resource type="Script" uid="uid://jal5apb0a11v" path="res://addons/midi/ADSR.gd" id="16_lvfll"]
@@ -81,7 +80,7 @@ position = Vector2(-27, -60)
 ui = NodePath("../UI")
 
 [node name="bg1" type="Sprite2D" parent="." unique_id=1764054297]
-z_index = -2
+z_index = -100
 position = Vector2(682, -500)
 scale = Vector2(3.6586072, 3.9864755)
 texture = ExtResource("8_7dov7")
@@ -137,7 +136,7 @@ wait_time = 0.605
 autostart = true
 
 [node name="bg2" type="Sprite2D" parent="." unique_id=1342967225]
-z_index = -2
+z_index = -100
 position = Vector2(2710, -500)
 scale = Vector2(3.659, 3.986)
 texture = ExtResource("8_7dov7")
@@ -146,7 +145,7 @@ region_rect = Rect2(0, 0, 555.43, 305)
 script = ExtResource("4_15wb7")
 
 [node name="bg3" type="Sprite2D" parent="." unique_id=2048837290]
-z_index = -2
+z_index = -100
 position = Vector2(4738.017, -500)
 scale = Vector2(3.659, 3.986)
 texture = ExtResource("8_7dov7")
@@ -157,7 +156,6 @@ script = ExtResource("4_15wb7")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1478666531]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1500720763 instance=ExtResource("10_yl73a")]
-died_scene = ExtResource("11_xbcdb")
 
 [node name="UI" type="CanvasLayer" parent="CanvasLayer" unique_id=263681745]
 
