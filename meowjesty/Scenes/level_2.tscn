@@ -175,7 +175,9 @@ autostart = true
 
 [node name="MidiPlayer" type="Node" parent="." unique_id=1236284373]
 script = ExtResource("15_78pok")
-file = "res://Tokyo Ghoul - Unravel.mid"
+file = "res://Audio/Songs/fancy_feast.mid"
+playing = true
+volume_db = -80.0
 soundfont = "res://FM-Piano1 20190916.sf2"
 metadata/_custom_type_script = "uid://bf1vnufu7na6x"
 

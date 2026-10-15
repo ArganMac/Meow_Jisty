@@ -8,5 +8,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var diff = position.x - $"../player".position.x
-	if diff < - 2028.017:
-		position.x += 4738.017
+	if diff < -637:
+		position.x += 1710

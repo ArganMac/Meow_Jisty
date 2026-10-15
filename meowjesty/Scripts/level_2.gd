@@ -23,6 +23,7 @@ var song_position_in_beats = 0
 var last_spawned_beat = 0
 var sec_per_beat = 60.0 / bpm
 var last_measure = 1
+var correct = 144
 
 var spawn_1_beat = 0
 var spawn_2_beat = 0
@@ -35,7 +36,7 @@ func _ready() -> void:
 	randomize()
 	$Conductor.beat.connect(_on_conductor_beat)
 	$Conductor.measure.connect(_on_conductor_measure)
-	$Conductor.play_with_beat_offset(9.5)
+	$Conductor.play_with_beat_offset(8)
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hit_tilde"):
